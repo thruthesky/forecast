@@ -10,18 +10,19 @@ import {Openweather} from '../../providers/openweather';
 })
 export class Forcast {
   weatherList = [];
-  //items: any;
-
-  weatherList_original: any;
+  
   constructor(public navCtrl: NavController,public navParams: NavParams,
   public weather : Openweather) {
     //let items=navParams.get('weather1');
     this.weatherList.push(navParams.get('weather1'));
-    this.weather.getForcastById(weatherList.id).subscribe(
-    response => {
-      this.weatherList=this.weatherList_original=response.json();
-    }
-    );
+    console.log( 'Forcast::constructor()', this.weatherList );
+    
+    this.weather.getForcastById(this.weatherList[0].id)
+      .map( e => e.json() )
+      .subscribe( re => {
+        console.log( re );
+        this.weatherList = re;
+      } );
 
   }
 

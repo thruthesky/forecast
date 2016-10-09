@@ -12,11 +12,16 @@ import {Forcast} from '../forcast/forcast';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  weather1 : [];
+  weather1 : any;
   weatherList = [];
   constructor(public navCtrl: NavController,public navParams: NavParams,
      public modalCtrl : ModalController, public weather : Openweather) {
 
+  }
+
+  // automate test
+  ngOnInit() {
+    this.onClick();
   }
   onClick() {
      let m = this.modalCtrl.create(Addweather);
@@ -28,6 +33,7 @@ export class HomePage {
   }
 
   viewForcast(event,weatherList){
+    console.log( weatherList );
     this.navCtrl.push(Forcast, {
       weather1: weatherList
 

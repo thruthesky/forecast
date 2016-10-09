@@ -12,6 +12,7 @@
 <ion-content padding>
   <ion-list>
   <button ion-item *ngFor="let weather of weatherList" (click)='viewForcast($event,weather)'>
+    {{ weather | json }}
   <ion-thumbnail item-left>
   <img src = "{{'http://openweathermap.org/img/w/'+weather.weather[0].icon+'.png'}}" height=100>
   </ion-thumbnail>

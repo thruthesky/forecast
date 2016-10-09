@@ -16,9 +16,13 @@ export class Addweather {
 
   constructor(public view: ViewController) {}
 
-  ionViewDidLoad() {
-    console.log('Hello Addweather Page');
+  ngOnInit() {
+    console.log('Addweather::ngOnInit()');
+    this.data.city = 'Seoul';
+    this.data.country = 'kr';
+    this.select();
   }
+
 
   dismiss() {
     console.log('dismiss');
